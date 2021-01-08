@@ -1,0 +1,108 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.Gcc.Magneto.Fragment.GlobalFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <Button
+            android:id="@+id/servergl2"
+            android:layout_width="297dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="57dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/antiban1"
+            android:text="Antiban 2"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/globalcleanguest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/servergl1" />
+
+        <Button
+            android:id="@+id/globalfixgame"
+            android:layout_width="298dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/globalcleanguest"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="57dp"
+            android:background="@drawable/fixgame1"
+            android:text="@string/fix_game"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/globalcleanguest" />
+
+        <Button
+            android:id="@+id/globalcleanguest"
+            android:layout_width="298dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/servergl2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="57dp"
+            android:background="@drawable/fixguest1"
+            android:text=" Clean Guest"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/servergl2" />
+
+        <Button
+            android:id="@+id/servergl1"
+            android:layout_width="297dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/antiban1"
+            android:text="Antiban 1"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/servergl2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taptoactivategl" />
+
+        <ImageView
+            android:id="@+id/taptoactivategl"
+            android:layout_width="148dp"
+            android:layout_height="492.8px"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:src="@drawable/taptoactivate"
+            app:layout_constraintBottom_toTopOf="@+id/servergl1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

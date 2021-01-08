@@ -1,0 +1,109 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.Gcc.Magneto.Fragment.VeitnamFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <Button
+            android:id="@+id/servervn2"
+            android:layout_width="297dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="57dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/antiban1"
+            android:text="Antiban 2"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/veitnamcleanguest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/servervn1" />
+
+        <Button
+            android:id="@+id/veitnamfixgame"
+            android:layout_width="298dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/veitnamcleanguest"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="57dp"
+            android:background="@drawable/fixgame1"
+            android:text="@string/fix_game"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/veitnamcleanguest"
+            app:layout_constraintVertical_bias="0.002" />
+
+        <Button
+            android:id="@+id/veitnamcleanguest"
+            android:layout_width="298dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="57dp"
+            android:background="@drawable/fixguest1"
+            android:text=" Clean Guest"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/servervn2" />
+
+        <Button
+            android:id="@+id/servervn1"
+            android:layout_width="297dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="48dp"
+
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/antiban1"
+            android:text="Antiban 1"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/servervn2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taptoactivatevn" />
+
+        <ImageView
+            android:id="@+id/taptoactivatevn"
+            android:layout_width="148dp"
+            android:layout_height="492.8px"
+            android:src="@drawable/taptoactivate"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_view">
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_icon_control_view"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/logo"
+                android:id="@+id/imageview_control"
+                android:layout_margin="10dp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_main_view"
+            android:alpha="0.9"
+            android:visibility="visible"
+            android:background="@drawable/background">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="189dp"
+                    android:layout_height="21dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="153dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toStartOf="@+id/layout_close_main_view"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Infinity Brutal Ijector "
+                    android:textAlignment="center"
+                    android:textColor="@color/orange"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:id="@+id/layout_close_main_view">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:text="Text"
+                        android:src="@drawable/ic_window_close"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Less Recoil:"
+                        android:textColor="@color/orange"
+                        android:fontFamily="@font/montserrat"
+                        android:padding="10dp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_marginRight="10dp"
+                            android:min="0"
+                            android:theme="@style/slider_orange"
+                            android:max="100"
+                            android:id="@+id/seekbar_Lessrecoil"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="220"
+                            android:textColor="@color/orange"
+                            android:id="@+id/textview_Lessrecoil"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Aimbot :"
+                        android:textColor="@color/orange"
+                        android:fontFamily="@font/montserrat"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:buttonTint="@color/orange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="OFF"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat"
+                                android:id="@+id/aimoff"/>
+
+                            <RadioButton
+                                android:id="@+id/aimhead"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/orange"
+                                android:text="Head"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat" />
+
+                            <RadioButton
+                                android:id="@+id/aimbody"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/orange"
+                                android:text="Body"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <Switch
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Small Croshair"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme"
+                            android:id="@+id/smallcroshair"/>
+
+                        <Switch
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Magic Bullet"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme"
+                            android:id="@+id/magicbullet"/>
+
+                        <Switch
+                            android:id="@+id/dawnevbr"
+                            android:text="Dawn Enviornment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme" />
+
+
+                        <Switch
+                            android:id="@+id/autoheadshot"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Auto Headshot"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme"/>
+
+                        <Switch
+                            android:id="@+id/nograss"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Grass"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme"/>
+
+                        <Switch
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Long Jump"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme"
+                            android:id="@+id/longjump"/>
+
+                        <Switch
+                            android:id="@+id/speedprone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Speedprone"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme" />
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="5dp"
+                                android:text="FOG :"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat"
+                                android:textStyle="bold" />
+                            <RadioButton
+                                android:buttonTint="@color/orange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="OFF"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat"
+                                android:theme="@style/switchtheme"
+                                android:id="@+id/offfog"/>
+
+                            <RadioButton
+                                android:buttonTint="@color/orange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Remove Fog"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat"
+                                android:id="@+id/nofog"/>
+
+                            <RadioButton
+                                android:id="@+id/voiletfog"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/orange"
+                                android:text="Voilet Fog"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat" />
+
+                            <RadioButton
+                                android:buttonTint="@color/orange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Green Fog"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat"
+                                android:id="@+id/greenfog"/>
+
+                            <RadioButton
+                                android:buttonTint="@color/orange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Red Fog"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/montserrat"
+                                android:id="@+id/redfog"/>
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wide View"
+                        android:textColor="@color/orange"
+                        android:fontFamily="@font/montserrat"
+                        android:padding="10dp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_marginRight="10dp"
+                            android:min="0"
+                            android:max="360"
+                            android:theme="@style/slider_orange"
+                            android:id="@+id/seekbar_wideview"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="360"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:id="@+id/textview_wideview"/>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flash :"
+                        android:textColor="@color/orange"
+                        android:fontFamily="@font/montserrat"
+                        android:padding="10dp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:layout_marginRight="10dp"
+                            android:min="0"
+                            android:max="600"
+                            android:theme="@style/slider_orange"
+                            android:id="@+id/seekbar_flash"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="360"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:id="@+id/textview_flash"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:layout_marginRight="5dp"/>
+
+                        <TextView
+                            android:id="@+id/textview_ric"
+                            android:layout_width="104dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="E X I T"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/btn_exit"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
+

@@ -1,0 +1,239 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.Gcc.Magneto.Fragment.SettingFragment"
+    android:background="@drawable/background">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="162dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/settings1"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="294dp"
+            android:layout_height="121dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/settingsback"
+            app:layout_constraintBottom_toTopOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="275dp"
+            android:layout_height="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="0.315"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="0.483">
+
+            <ImageView
+                android:layout_width="191dp"
+                android:layout_height="21dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginBottom="58dp"
+                android:background="@drawable/choosegameversionback"
+                android:src="@drawable/choosegameversion" />
+
+            <Button
+                android:id="@+id/playstore32version"
+                android:layout_width="109dp"
+                android:layout_height="22dp"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="147dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/playstore32btn"
+                android:text="playstore 32 "
+                android:textColor="@color/orange"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/playstore64version"
+                android:layout_width="113dp"
+                android:layout_height="21dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="146dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="13dp"
+                android:background="@color/orange"
+                android:text="playstore 64 "
+                android:textColor="@color/whiteTextColor"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="297dp"
+            android:layout_height="169dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/clearingmoodback"
+            app:layout_constraintBottom_toTopOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="281dp"
+            android:layout_height="148dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5">
+
+            <ImageView
+                android:layout_width="213dp"
+                android:layout_height="21dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="126dp"
+                android:background="@color/orange"
+                android:src="@drawable/clearingmood" />
+
+            <TextView
+                android:id="@+id/everymin"
+                android:layout_width="174dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="Every 1 minutes "
+                android:textColor="@color/whiteTextColor"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="217dp"
+                android:layout_height="19dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="51dp"
+                android:layout_marginEnd="29dp"
+                android:layout_marginBottom="78dp"
+                android:progressTint="#FFFFFF"
+                android:progress="1"
+                android:max="5"
+                android:thumb="@drawable/controlslider"
+                android:thumbTint="#FDFDFD" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="215dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/everymin"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="54dp"
+                android:fontFamily="@font/montserrat"
+                android:text="slide the dot according to your device"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="298dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="57dp"
+            android:layout_marginBottom="271dp"
+            android:src="@drawable/logoutbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/logoutbtn"
+            android:layout_width="239dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/logoutbtn"
+            android:fontFamily="@font/montserrat"
+            android:text="Logout"
+            android:textAlignment="viewStart"
+            android:textColor="@color/whiteCardColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="24dp"
+            android:layout_height="31dp"
+            android:src="@drawable/logouticon"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
+            app:layout_constraintHorizontal_bias="0.931"
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,104 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.Gcc.Magneto.Fragment.KoreanFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <Button
+            android:id="@+id/serverkr2"
+            android:layout_width="297dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="57dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/antiban1"
+            android:text="Antiban 2"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/koreancleanguest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serverkr1" />
+
+        <Button
+            android:id="@+id/koreanfixgame"
+            android:layout_width="298dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/koreancleanguest"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="57dp"
+            android:background="@drawable/fixgame1"
+            android:text="@string/fix_game"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/koreancleanguest" />
+
+        <Button
+            android:id="@+id/koreancleanguest"
+            android:layout_width="298dp"
+            android:layout_height="52dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="57dp"
+            android:background="@drawable/fixguest1"
+            android:text=" Clean Guest"
+            android:textAlignment="center"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serverkr2" />
+
+        <Button
+            android:id="@+id/serverkr1"
+            android:layout_width="297dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="48dp"
+
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/antiban1"
+            android:text="Antiban 1"
+            android:textColor="@color/whiteTextColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/serverkr2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taptoactivatekr" />
+
+        <ImageView
+            android:id="@+id/taptoactivatekr"
+            android:layout_width="148dp"
+            android:layout_height="492.8px"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/taptoactivate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

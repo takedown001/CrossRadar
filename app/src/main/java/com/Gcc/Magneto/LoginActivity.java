@@ -1,5 +1,6 @@
 package com.Gcc.Magneto;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.Gcc.Magneto.GccConfig.urlref;
 
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     private long getduration;
     private String key;
     TextView version;
+    private static final String TAG = "tag";
     Handler handler = new Handler();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
         version = findViewById(R.id.verisondisplay);
         String setversion = pInfo.versionName;
         version.setText("version "+setversion);
+
         findViewById(R.id.signinbtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,8 +95,39 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+        isStoragePermissionGranted();
+
     }
 
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+          //     Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+             //   Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+         //   Log.v(TAG,"Permission is granted");
+            return true;
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+            //resume tasks needing this permission
+        }
+    }
 
     @SuppressLint("HardwareIds")
     public static String getDeviceId(Context context) {

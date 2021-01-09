@@ -175,7 +175,7 @@ public class SafeService  extends Service {
                 } else if(progress == 360){
                     WideViewValue = 19;
                 }
-                ShellUtils.SU(myDaemon +String.valueOf(WideViewValue));
+                ShellUtils.SU(myDaemon +""+String.valueOf(WideViewValue));
             }
         });
         seekbar_wideview.setProgress(0);

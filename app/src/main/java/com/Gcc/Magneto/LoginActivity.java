@@ -41,7 +41,7 @@ import burakustun.com.lottieprogressdialog.LottieDialogFragment;
 public class LoginActivity extends AppCompatActivity {
 
 
-    private ProgressDialog pDialog;
+
     private static final String TAG_MSG = "message";
     private static final String TAG_KEY = "key";
     private static final String TAG_ERROR = "error";

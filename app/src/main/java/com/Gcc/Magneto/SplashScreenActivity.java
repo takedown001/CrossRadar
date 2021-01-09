@@ -6,20 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import androidx.core.app.CoreComponentFactory;
-
 import com.Gcc.Magneto.GccConfig.urlref;
 import com.Gcc.magneto.R;
-
-import com.airbnb.lottie.L;
 
 import org.json.JSONException;
 import org.json.JSONObject;

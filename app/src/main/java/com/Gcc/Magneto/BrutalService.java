@@ -205,7 +205,7 @@ public class BrutalService extends Service {
                 } else if(progress == 360){
                     WideViewValue = 19;
                 }
-                ShellUtils.SU(myDaemon +" "+ String.valueOf(WideViewValue));
+                ShellUtils.SU(myDaemon +" " +String.valueOf(WideViewValue));
             }
         });
         seekbar_wideview.setProgress(0);
@@ -242,7 +242,7 @@ public class BrutalService extends Service {
                 }  else if(progress == 600){
                     FlashValue = 33;
                 }
-                ShellUtils.SU(myDaemon +" "+ String.valueOf(FlashValue));
+                ShellUtils.SU(myDaemon + " "+String.valueOf(FlashValue));
             }
         });
         seekbar_flash.setProgress(0);

@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -144,13 +143,12 @@ public class SafeService  extends Service {
 
         });
 
-        seekbar_wideview.incrementProgressBy(90);
+        seekbar_wideview.incrementProgressBy(60);
         seekbar_wideview.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
             public void onProgressChanged(SeekBar p1, int progress, boolean p3) {
-
-                progress = progress / 90;
-                progress = progress * 90;
+                progress = progress / 60;
+                progress = progress * 60;
                 textview_seekbar.setText(String.valueOf(progress));
 
 
@@ -164,8 +162,8 @@ public class SafeService  extends Service {
             @Override
             public void onStopTrackingTouch(SeekBar p1) {
                 int progress = p1.getProgress();
-                progress = progress / 90;
-                progress = progress * 90;
+                progress = progress / 25;
+                progress = progress * 25;
                 if (progress == 0){
                     WideViewValue = 15;
                 } else if(progress == 90){
@@ -177,7 +175,6 @@ public class SafeService  extends Service {
                 } else if(progress == 360){
                     WideViewValue = 19;
                 }
-                Log.d("wide",myDaemon+" "+String.valueOf(WideViewValue));
                 ShellUtils.SU(myDaemon +" "+String.valueOf(WideViewValue));
             }
         });

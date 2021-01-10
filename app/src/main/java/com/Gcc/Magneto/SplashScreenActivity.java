@@ -1,21 +1,15 @@
 package com.Gcc.Magneto;
 
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
-
-import androidx.core.app.ActivityCompat;
 
 import com.Gcc.Magneto.GccConfig.urlref;
 import com.Gcc.magneto.R;
@@ -34,7 +28,6 @@ public class SplashScreenActivity extends Activity {
     private static final String TAG_DEVICEID = "deviceid";
     private static final String url = urlref.mainurl + "login.php";
     private static final String TAG_DURATION = "duration";
-
     //Prefrance
     JSONParserString jsonParserString = new JSONParserString();
     private String key, deviceid;
@@ -47,10 +40,10 @@ public class SplashScreenActivity extends Activity {
         setContentView(R.layout.activity_splash_screen);
         key = shred.getString(TAG_KEY, "test");
         //   Log.d("key",key);
-
         new BackgroundSplashTask().execute();
 
     }
+
 
     private boolean checkVPN() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Gcc.Magneto.Fragment.SettingFragment"
+    tools:context="com.Gcc.infinity.Fragment.SettingFragment"
     android:background="@drawable/background">
 
     <!-- TODO: Update blank fragment layout -->

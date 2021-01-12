@@ -3,9 +3,9 @@ apply plugin: 'com.chrisney.enigma'
 repositories {
     maven { url 'https://maven.google.com' }
 }
-enigma.enabled = true
-enigma.injectFakeKeys = true
-enigma.classes = ["com.Gcc.Magneto.GccConfig.urlref.java"]
+enigma.enabled = false
+enigma.injectFakeKeys = false
+enigma.classes = ["com.Gcc.infinity.GccConfig.urlref.java","com.Gcc.infinity.BrutalService.java","com.Gcc.infinity.SafeService.java","com.Gcc.infinity.DownloadFile.java","com.Gcc.infinity.ShellUtils.java"]
 
 android {
     compileSdkVersion 30

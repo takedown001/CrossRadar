@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.Gcc.magneto">
+    package="com.Gcc.infinity">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config">
 
-        <activity android:name="com.Gcc.Magneto.SplashScreenActivity" android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name="com.Gcc.infinity.SplashScreenActivity" android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
@@ -29,20 +29,20 @@
             </intent-filter>
         </activity>
         <service
-            android:name="com.Gcc.Magneto.BrutalService"
+            android:name="com.Gcc.infinity.BrutalService"
             android:enabled="true"
             android:exported="false"/>
         <service
-            android:name="com.Gcc.Magneto.SafeService"
+            android:name="com.Gcc.infinity.SafeService"
             android:enabled="true"
             android:exported="false"/>
 
         <meta-data
             android:name="android.max_aspect"
             android:value="4.0"/>
-        <activity android:name="com.Gcc.Magneto.LoginActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.Gcc.Magneto.AppUpdaterActivity" android:theme="@style/AppTheme.NoActionBar"/>
-<activity android:name="com.Gcc.Magneto.HomeActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.Gcc.infinity.LoginActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.Gcc.infinity.AppUpdaterActivity" android:theme="@style/AppTheme.NoActionBar"/>
+<activity android:name="com.Gcc.infinity.HomeActivity" android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -26,12 +26,12 @@ public class DownloadFile extends AsyncTask<String, Integer, String>
     public DownloadFile(Context context) {
         this.instance = context;
         mProgressDialog = new ProgressDialog(instance);
-        mProgressDialog.setMessage("downloading Requirements...");
+        mProgressDialog.setMessage("Downloading Requirements...");
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         mProgressDialog.setCancelable(false);
     }
-    @Override
+
     protected String doInBackground(String... url_download)
     {
         InputStream input = null;
@@ -49,7 +49,7 @@ public class DownloadFile extends AsyncTask<String, Integer, String>
 
             // download the file
             input = connection.getInputStream();
-            output = new FileOutputStream(instance.getFilesDir().getPath() + urlref.nameoflib);
+            output = new FileOutputStream(instance.getFilesDir().toString()+urlref.nameoflib);
             byte data[] = new byte[4096];
             long total = 0;
             int count;
@@ -79,6 +79,7 @@ public class DownloadFile extends AsyncTask<String, Integer, String>
         }
         return null;
     }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();

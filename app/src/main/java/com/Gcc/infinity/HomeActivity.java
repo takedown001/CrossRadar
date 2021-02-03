@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.Settings;
 import android.view.MenuItem;
 
@@ -28,9 +29,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
 public class HomeActivity extends AppCompatActivity {
+
 
     private static final String url = urlref.mainurl + "app_updater.php";
     public static int REQUEST_OVERLAY_PERMISSION = 5469;
@@ -42,12 +49,16 @@ public class HomeActivity extends AppCompatActivity {
     private String whatsNewData;
     private static final String TAG_APP_NEWVERSION = "newversion";
     private static int backbackexit = 1;
+    public String daemonPath;
 
+    public String daemonPath64;
+
+    public static String socket;
     RequestHandler requestHandler = new RequestHandler();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ShellUtils.SU("su");
         InitRICObverlays();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.home);
@@ -56,10 +67,18 @@ public class HomeActivity extends AppCompatActivity {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         new OneLoadAllProducts().execute();
-        File f = new File(urlref.pathoflib);
+        File f = new File(urlref.downloadpath);
+
+
         if(!f.exists()){
             new DownloadFile(HomeActivity.this).execute(urlref.downloadpath);
         }
+
+        loadAssets();
+        loadAssets64();
+        ShellUtils.SU("su -c");
+
+
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -118,9 +137,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void StartRICOverlays(){
-        startService(new Intent(this, BrutalService.class));
-    }
+
 
     @Override
     public void onBackPressed() {
@@ -135,6 +152,97 @@ public class HomeActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    public void loadAssets()
+    {
+        String filepath = Environment.getExternalStorageDirectory()+"/Android/data/.tyb";
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(filepath);
+            byte[] buffer = "DO NOT DELETE".getBytes();
+            fos.write(buffer, 0, buffer.length);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            if(fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        String pathf = getFilesDir().toString()+"/libtakedown";
+        try
+        {
+            OutputStream myOutput = new FileOutputStream(pathf);
+            byte[] buffer = new byte[1024];
+            int length;
+            InputStream myInput = getAssets().open("libtakedown");
+            while ((length = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, length);
+            }
+            myInput.close();
+            myOutput.flush();
+            myOutput.close();
+
+        }
+
+        catch (IOException e)
+        {
+        }
+
+
+        daemonPath = getFilesDir().toString()+"/libtakedown";
+
+
+        try{
+            Runtime.getRuntime().exec("chmod 777 "+daemonPath);
+        }
+        catch (IOException e)
+        {
+        }
+
+    }
+
+    public void loadAssets64()
+    {
+
+        String pathf = getFilesDir().toString()+"/liberror";
+        try
+        {
+            OutputStream myOutput = new FileOutputStream(pathf);
+            byte[] buffer = new byte[1024];
+            int length;
+            InputStream myInput = getAssets().open("liberror");
+            while ((length = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, length);
+            }
+            myInput.close();
+            myOutput.flush();
+            myOutput.close();
+
+        }
+
+        catch (IOException e)
+        {
+        }
+
+
+        daemonPath64 = getFilesDir().toString()+"/liberror";
+
+
+        try{
+            Runtime.getRuntime().exec("chmod 777 "+daemonPath64);
+        }
+        catch (IOException e)
+        {
+        }
+
+    }
 
 
     class OneLoadAllProducts extends AsyncTask<Void, Void, String> {
@@ -171,7 +279,7 @@ public class HomeActivity extends AppCompatActivity {
                     PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
                     String version = pInfo.versionName;
 
-                    System.out.println("takedown" + "old:" + version + " new:" + newversion);
+                //    System.out.println("takedown" + "old:" + version + " new:" + newversion);
 
                     if (Float.parseFloat(version) < Float.parseFloat(newversion)) {
                         Intent intent = new Intent(HomeActivity.this, AppUpdaterActivity.class);

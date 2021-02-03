@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/ic_launcher"
                 android:id="@+id/imageview_control"
                 android:layout_margin="10dp"/>
 
@@ -43,13 +43,13 @@
                     android:layout_height="21dp"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="72dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="153dp"
+                    android:layout_marginEnd="106dp"
                     android:layout_marginBottom="10dp"
                     android:layout_toStartOf="@+id/layout_close_main_view"
                     android:fontFamily="@font/montserrat"
-                    android:text="Infinity Brutal Ijector "
+                    android:text="Brutal Ijector "
                     android:textAlignment="center"
                     android:textColor="@color/orange"
                     android:textStyle="bold" />
@@ -68,10 +68,10 @@
                     android:id="@+id/layout_close_main_view">
 
                     <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:text="Text"
-                        android:src="@drawable/ic_window_close"/>
+                        android:layout_width="76dp"
+                        android:layout_height="37dp"
+                        android:src="@drawable/close"
+                        android:text="Text" />
 
                 </LinearLayout>
 

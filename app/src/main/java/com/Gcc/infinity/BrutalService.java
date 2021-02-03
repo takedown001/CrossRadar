@@ -34,6 +34,7 @@ import android.widget.CompoundButton;
 import com.Gcc.infinity.GccConfig.urlref;
 
 
+
 public class BrutalService extends Service {
 
     private PowerManager.WakeLock mWakeLock;
@@ -53,7 +54,7 @@ public class BrutalService extends Service {
     private int WideViewValue = 360;
     private int LessrecoilValue = 220;
     private int FlashValue = 600;
-    private String myDaemon = "./"+ urlref.pathoflib;
+    private String myDaemon = "./"+ urlref.pathoflib+urlref.nameoflib;
 
     private Intent pubgmintent;
 
@@ -164,9 +165,9 @@ public class BrutalService extends Service {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
-                    ShellUtils.SU(myDaemon + " 4");
-                } else {
                     ShellUtils.SU(myDaemon + " 5");
+                } else {
+                    ShellUtils.SU(myDaemon + " 6");
                 }
             }
 
@@ -314,9 +315,9 @@ public class BrutalService extends Service {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
-                    ShellUtils.SU(myDaemon + " 14");
+                    ShellUtils.SU(myDaemon + " 13");
                 } else {
-                    ShellUtils.SU(myDaemon + " 15");
+                    ShellUtils.SU(myDaemon + " 14");
                 }
             }
 
@@ -496,6 +497,7 @@ public class BrutalService extends Service {
         ShowMainView();
         final File daemon = new File(getFilesDir().getPath() + urlref.nameoflib);
         myDaemon = daemon.toString();
+        ShellUtils.SU("chmod 777 "+myDaemon);
 
     }
 

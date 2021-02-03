@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -17,9 +18,12 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.Gcc.infinity.BrutalService;
 import com.Gcc.infinity.GccConfig.urlref;
+import com.Gcc.infinity.Helper;
 import com.Gcc.infinity.JavaUrlConnectionReader;
 import com.Gcc.infinity.LoginActivity;
+import com.Gcc.infinity.MainActivity;
 import com.Gcc.infinity.SafeService;
 import com.Gcc.infinity.ShellUtils;
 import com.Gcc.infinity.R;
@@ -54,7 +58,6 @@ public class VeitnamFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -71,6 +74,9 @@ public class VeitnamFragment extends Fragment {
         }
         View rootViewone = inflater.inflate(R.layout.fragment_veitnam, container, false);
         SharedPreferences shred = getActivity().getSharedPreferences("userdetails", MODE_PRIVATE);
+        SharedPreferences esp = getActivity().getSharedPreferences("esp", MODE_PRIVATE);
+        SharedPreferences.Editor e = esp.edit();
+        e.putString("game", "Vietnam").apply();
         version = shred.getString("version","32");
         deviceid = LoginActivity.getDeviceId(getActivity());
         Button cleanguest, fixgame, antiban1, antiban2;
@@ -152,7 +158,7 @@ public class VeitnamFragment extends Fragment {
                     antiban.dismiss();
                     if (daemon.exists()){
                         ShellUtils.SU("chmod 777 " + daemon);
-                        getActivity().startService(new Intent(getActivity(), SafeService.class));
+                        getActivity().startService(new Intent(getActivity(), BrutalService.class));
                     } else {
                         new AlertDialog.Builder(getActivity())
                                 .setMessage("Requirement Not Found, Restart Your Device")
@@ -311,7 +317,26 @@ public class VeitnamFragment extends Fragment {
         taptoactivatevn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Currently Team is Working",Toast.LENGTH_LONG).show();
+                lottieDialog.show(getActivity().getFragmentManager(),"loading");
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        lottieDialog.dismiss();
+                        PackageManager pm = getContext().getPackageManager();
+                        if(Helper.isPackageInstalled("com.vng.pubgmobile",pm)) {
+                            ShellUtils.SU(
+                                    "am start -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity");
+                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
+
+                            startActivity(new Intent(getContext(), MainActivity.class));
+                        }else{
+                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                },4000);
+                // Game is running
+
             }
         });
         return rootViewone;

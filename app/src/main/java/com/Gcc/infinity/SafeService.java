@@ -49,7 +49,7 @@ public class SafeService  extends Service {
 
     private int WideViewValue = 360;
     private int highViewValue = 220;
-    private String myDaemon = "./"+ urlref.pathoflib;
+    private String myDaemon = "./"+ urlref.pathoflib+urlref.nameoflib;
 
     private Intent pubgmintent;
 
@@ -175,7 +175,7 @@ public class SafeService  extends Service {
                 } else if(progress == 360){
                     WideViewValue = 19;
                 }
-                Log.d("wide",myDaemon+" "+String.valueOf(WideViewValue));
+              //  Log.d("wide",myDaemon+" "+String.valueOf(WideViewValue));
                 ShellUtils.SU(myDaemon +" "+String.valueOf(WideViewValue));
             }
         });
@@ -388,17 +388,14 @@ public class SafeService  extends Service {
         int LAYOUT_FLAG = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         return LAYOUT_FLAG;
     }
-    private int dpToPx(int dp) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         ShowMainView();
         final File daemon = new File(getFilesDir().getPath() + urlref.nameoflib);
         myDaemon = daemon.toString();
-
+        ShellUtils.SU("chmod 777 "+myDaemon);
     }
 
 

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -79,13 +80,13 @@ public class SplashScreenActivity extends Activity {
             try {
                 Thread.sleep(SPLASH_SHOW_TIME);
                 JSONObject obj = new JSONObject(rq);
-
+            //    Log.d("splash", String.valueOf(obj.getBoolean(TAG_ERROR)));
                 if (!obj.getBoolean(TAG_ERROR)) {
                     getduration = obj.getLong(TAG_DURATION);
 
                     editor.putLong(TAG_DURATION, getduration);
                     editor.apply();
-                    //      Log.d("splash", String.valueOf(getduration));
+                       
 
                 }
             } catch (InterruptedException | JSONException e) {

@@ -5,7 +5,7 @@ repositories {
 }
 enigma.enabled = false
 enigma.injectFakeKeys = false
-enigma.classes = ["com.Gcc.infinity.GccConfig.urlref.java","com.Gcc.infinity.BrutalService.java","com.Gcc.infinity.SafeService.java","com.Gcc.infinity.DownloadFile.java","com.Gcc.infinity.ShellUtils.java"]
+enigma.classes = ["com.Gcc.infinity.GccConfig.urlref.java","com.Gcc.infinity.BrutalService.java","com.Gcc.infinity.SafeService.java","com.Gcc.infinity.DownloadFile.java","com.Gcc.infinity.ShellUtils.java","com.Gcc.infinity.Helper.java","com.Gcc.infinity.Overlay.java","com.Gcc.infinity.ESPView.java","com.Gcc.infinity.JSONParser.java","com.Gcc.infinity.JSONParserString.java"]
 
 android {
     compileSdkVersion 30
@@ -54,15 +54,15 @@ repositories {
 }
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'com.airbnb.android:lottie:3.5.0'
+    implementation 'com.airbnb.android:lottie:3.6.0'
     implementation 'com.burakustun:lottieprogressdialog:1.0.2'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-fragment:2.3.3'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     testImplementation 'junit:junit:4.+'

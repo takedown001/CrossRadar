@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.Gcc.infinity.ESPView;
 import com.Gcc.infinity.FloatLogo;
 import com.Gcc.infinity.GccConfig.urlref;
 import com.Gcc.infinity.Helper;
@@ -39,6 +40,7 @@ import com.Gcc.infinity.Overlay;
 import com.Gcc.infinity.SafeService;
 import com.Gcc.infinity.ShellUtils;
 import com.Gcc.infinity.R;
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -48,6 +50,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 
@@ -56,7 +59,7 @@ import burakustun.com.lottieprogressdialog.LottieDialogFragment;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class GlobalFragment extends Fragment {
+public class GlobalFragment extends Fragment implements View.OnClickListener {
 
     private final JavaUrlConnectionReader reader = new JavaUrlConnectionReader();
     private String data;
@@ -68,11 +71,9 @@ public class GlobalFragment extends Fragment {
     private static final String TAG_DEVICEID = "deviceid";
     private static final String TAG_VERSION = "version";
     ImageView taptoactivategl1;
-
     public GlobalFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,21 +96,24 @@ public class GlobalFragment extends Fragment {
         }
         View rootViewone = inflater.inflate(R.layout.fragment_global, container, false);
         SharedPreferences shred = getActivity().getSharedPreferences("userdetails", MODE_PRIVATE);
-        SharedPreferences esp = getActivity().getSharedPreferences("esp", MODE_PRIVATE);
-        SharedPreferences.Editor e = esp.edit();
-        e.putString("game", "Global").apply();
-        final File daemon = new File(urlref.pathoflib);
+        SharedPreferences ga = getActivity().getSharedPreferences("game", MODE_PRIVATE);
+        SharedPreferences.Editor g = ga.edit();
+        g.putString("game", "Global").apply();
+        version = shred.getString("version", "32");
 
+        final File daemon = new File(urlref.pathoflib+urlref.nameoflib);
 
         deviceid = LoginActivity.getDeviceId(getActivity());
-        version = shred.getString("version", "32");
+
 
         Button cleanguest, fixgame, antiban1, antiban2;
         antiban1 = rootViewone.findViewById(R.id.servergl1);
         antiban2 = rootViewone.findViewById(R.id.servergl2);
+
         cleanguest = rootViewone.findViewById(R.id.globalcleanguest);
         fixgame = rootViewone.findViewById(R.id.globalfixgame);
         taptoactivategl1 = rootViewone.findViewById(R.id.taptoactivategl);
+        taptoactivategl1.setOnClickListener(this);
         final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json", true);
         lottieDialog.setCancelable(false);
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json", true);
@@ -241,10 +245,10 @@ public class GlobalFragment extends Fragment {
                         try {
                             Process su = Runtime.getRuntime().exec("su");
                             DataOutputStream outputStream = new DataOutputStream(su.getOutputStream());
-                            outputStream.writeBytes("Target=\"/data/data/com.vng.pubgmobile/shared_prefs/device_id.xml\"\n" +
-                                    "if [ \"$(pidof com.vng.pubgmobile)\" != \"\" ]\n" +
+                            outputStream.writeBytes("Target=\"/data/data/com.tencent.ig/shared_prefs/device_id.xml\"\n" +
+                                    "if [ \"$(pidof com.tencent.ig)\" != \"\" ]\n" +
                                     "then\n" +
-                                    "su -c killall com.vng.pubgmobile\n" +
+                                    "su -c killall com.tencent.ig\n" +
                                     "fi\n" +
                                     " rm -rf $Target\n" +
                                     " touch $Target\n" +
@@ -256,8 +260,8 @@ public class GlobalFragment extends Fragment {
                                     "    <string name=\\\"install\\\"></string>\n" +
                                     "    <string name=\\\"uuid\\\">$(tr -dc a-z0-9 </dev/urandom | head -c 32)</string>\n" +
                                     "</map> \" >> $Target\n" +
-                                    "rm -rf /data/data/com.vng.pubgmobile/databases\n" +
-                                    "rm -rf /data/media/0/Android/data/com.vng.pubgmobile/files/login-identifier.txt\n" +
+                                    "rm -rf /data/data/com.tencent.ig/databases\n" +
+                                    "rm -rf /data/media/0/Android/data/com.tencent.ig/files/login-identifier.txt\n" +
                                     "chmod 644 $Target\n");
                             outputStream.flush();
                             outputStream.writeBytes("exit\n");
@@ -296,29 +300,28 @@ public class GlobalFragment extends Fragment {
                         try {
                             Process su = Runtime.getRuntime().exec("su");
                             DataOutputStream outputStream = new DataOutputStream(su.getOutputStream());
-                            outputStream.writeBytes("rm -rf /storage/emulated/0/Android/data/com.vng.pubgmobile/files/ProgramBinaryCache &>/dev/null\n" +
-                                    "rm -rf /storage/emulated/0/Android/data/com.vng.pubgmobile\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*/*/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*/*/*/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*/*/*/*/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*/*/*/*/*/*\n" +
-                                    "chmod 755 /data/media/0/Android/data/com.vng.pubgmobile/*/*/*/*/*/*/*/*\n" +
-                                    "rm -rf /storage/emulated/0/Android/data/com.vng.pubgmobile\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*/*/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*/*/*/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*/*/*/*/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*/*/*/*/*/*\n" +
-                                    "chmod 755 /data/data/com.vng.pubgmobile/*/*/*/*/*/*/*/*\n" +
-                                    "rm -rf /data/data/com.vng.pubgmobile\n" +
-                                    "pm install -r /data/app/com.vng.pubgmobile*/base.apk\n");
+                            outputStream.writeBytes("rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/ProgramBinaryCache &>/dev/null\n" +
+                                    "rm -rf /storage/emulated/0/Android/data/com.tencent.ig\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*/*\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*/*/*\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*/*/*/*/*\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*/*/*/*/*/*\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*/*/*/*/*/*/*\n" +
+                                    "chmod 755 /data/media/0/Android/data/com.tencent.ig/*/*/*/*/*/*/*/*\n" +
+                                    "rm -rf /storage/emulated/0/Android/data/com.tencent.ig\n" +
+                                    "chmod 755 /data/data/com.tencent.ig\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*/*/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*/*/*/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*/*/*/*/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*/*/*/*/*/*\n" +
+                                    "chmod 755 /data/data/com.tencent.ig/*/*/*/*/*/*/*/*\n" +
+                                    "rm -rf /data/data/com.tencent.ig\n" +
+                                    "pm install -r /data/app/com.tencent.ig*/base.apk\n");
                             outputStream.flush();
                             outputStream.writeBytes("exit\n");
                             outputStream.flush();
@@ -344,37 +347,36 @@ public class GlobalFragment extends Fragment {
             }
         });
 
-        taptoactivategl1.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ShowToast")
-            @Override
-            public void onClick(View v) {
-                lottieDialog.show(getActivity().getFragmentManager(), "load");
-                handler.postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        lottieDialog.dismiss();
-                        PackageManager pm = getContext().getPackageManager();
-                        if(Helper.isPackageInstalled("com.tencent.ig",pm)) {
-                            ShellUtils.SU(
-                                    "am start -n com.tencent.ig/com.epicgames.ue4.SplashActivity");
-
-                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
-
-                            startActivity(new Intent(getContext(), MainActivity.class));
-                        }else{
-                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-                },4000);
-                    // Game is running
-
-            }
-        });
 
         return rootViewone;
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+
+            case R.id.taptoactivategl:
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        PackageManager pm = getContext().getPackageManager();
+                        if(Helper.isPackageInstalled("com.tencent.ig",pm)) {
+                            Intent i = new Intent(getContext(), MainActivity.class);
+                            i.putExtra("game","Global");
+                            startActivity(i);
+                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
+                            ShellUtils.SU(
+                                    "am start -n com.tencent.ig/com.epicgames.ue4.SplashActivity");
+
+                        }else{
+                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },2000);
+                break;
+
+        }
+    }
 }
 

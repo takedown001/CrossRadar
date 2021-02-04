@@ -39,7 +39,7 @@ import burakustun.com.lottieprogressdialog.LottieDialogFragment;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class VeitnamFragment extends Fragment {
+public class VeitnamFragment extends Fragment implements View.OnClickListener {
 
     private final JavaUrlConnectionReader reader = new JavaUrlConnectionReader();
     private String data;
@@ -74,9 +74,10 @@ public class VeitnamFragment extends Fragment {
         }
         View rootViewone = inflater.inflate(R.layout.fragment_veitnam, container, false);
         SharedPreferences shred = getActivity().getSharedPreferences("userdetails", MODE_PRIVATE);
-        SharedPreferences esp = getActivity().getSharedPreferences("esp", MODE_PRIVATE);
-        SharedPreferences.Editor e = esp.edit();
-        e.putString("game", "Vietnam").apply();
+        SharedPreferences ga = getActivity().getSharedPreferences("game", MODE_PRIVATE);
+        SharedPreferences.Editor g = ga.edit();
+        g.putString("game", "Vietnam").apply();
+
         version = shred.getString("version","32");
         deviceid = LoginActivity.getDeviceId(getActivity());
         Button cleanguest, fixgame, antiban1, antiban2;
@@ -86,7 +87,7 @@ public class VeitnamFragment extends Fragment {
         fixgame = rootViewone.findViewById(R.id.veitnamfixgame);
         taptoactivatevn = rootViewone.findViewById(R.id.taptoactivatevn);
         final File daemon = new File(urlref.pathoflib);
-
+        taptoactivatevn.setOnClickListener(this);
         final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
         lottieDialog.setCancelable(false);
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json",true);
@@ -340,6 +341,34 @@ public class VeitnamFragment extends Fragment {
             }
         });
         return rootViewone;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+
+            case R.id.taptoactivatevn:
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        PackageManager pm = getContext().getPackageManager();
+                        if(Helper.isPackageInstalled("com.vng.pubgmobile",pm)) {
+                            Intent i = new Intent(getContext(), MainActivity.class);
+                            i.putExtra("game","Vietnam");
+                            startActivity(i);
+                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
+
+                            ShellUtils.SU(
+                                    "am start -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity");
+
+                        }else{
+                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },2000);
+                break;
+
+        }
     }
 }
 

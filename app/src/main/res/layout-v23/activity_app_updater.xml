@@ -112,19 +112,21 @@
 
                     <Button
                         android:id="@+id/updateButton"
-                        android:layout_width="327dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="328dp"
+                        android:layout_height="63dp"
                         android:layout_marginLeft="15.0dip"
                         android:layout_marginTop="10.0dip"
                         android:layout_marginRight="15.0dip"
                         android:layout_marginBottom="2.0dip"
 
+                        android:background="@drawable/activatebtn"
                         android:clickable="true"
                         android:focusable="true"
-                        android:foreground="?android:selectableItemBackground"
+                        android:fontFamily="@font/montserrat"
                         android:text="UPDATE"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:textColor="#ffffffff" />
+                        android:textColor="#ffffffff"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

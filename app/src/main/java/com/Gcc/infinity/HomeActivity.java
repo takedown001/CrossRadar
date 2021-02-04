@@ -74,9 +74,6 @@ public class HomeActivity extends AppCompatActivity {
             new DownloadFile(HomeActivity.this).execute(urlref.downloadpath);
         }
 
-        loadAssets();
-        loadAssets64();
-        ShellUtils.SU("su -c");
 
 
     }
@@ -152,97 +149,7 @@ public class HomeActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void loadAssets()
-    {
-        String filepath = Environment.getExternalStorageDirectory()+"/Android/data/.tyb";
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(filepath);
-            byte[] buffer = "DO NOT DELETE".getBytes();
-            fos.write(buffer, 0, buffer.length);
-            fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally{
-            if(fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
 
-        String pathf = getFilesDir().toString()+"/libtakedown";
-        try
-        {
-            OutputStream myOutput = new FileOutputStream(pathf);
-            byte[] buffer = new byte[1024];
-            int length;
-            InputStream myInput = getAssets().open("libtakedown");
-            while ((length = myInput.read(buffer)) > 0) {
-                myOutput.write(buffer, 0, length);
-            }
-            myInput.close();
-            myOutput.flush();
-            myOutput.close();
-
-        }
-
-        catch (IOException e)
-        {
-        }
-
-
-        daemonPath = getFilesDir().toString()+"/libtakedown";
-
-
-        try{
-            Runtime.getRuntime().exec("chmod 777 "+daemonPath);
-        }
-        catch (IOException e)
-        {
-        }
-
-    }
-
-    public void loadAssets64()
-    {
-
-        String pathf = getFilesDir().toString()+"/liberror";
-        try
-        {
-            OutputStream myOutput = new FileOutputStream(pathf);
-            byte[] buffer = new byte[1024];
-            int length;
-            InputStream myInput = getAssets().open("liberror");
-            while ((length = myInput.read(buffer)) > 0) {
-                myOutput.write(buffer, 0, length);
-            }
-            myInput.close();
-            myOutput.flush();
-            myOutput.close();
-
-        }
-
-        catch (IOException e)
-        {
-        }
-
-
-        daemonPath64 = getFilesDir().toString()+"/liberror";
-
-
-        try{
-            Runtime.getRuntime().exec("chmod 777 "+daemonPath64);
-        }
-        catch (IOException e)
-        {
-        }
-
-    }
 
 
     class OneLoadAllProducts extends AsyncTask<Void, Void, String> {

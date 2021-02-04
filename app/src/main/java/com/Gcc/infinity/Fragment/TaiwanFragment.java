@@ -39,7 +39,7 @@ import burakustun.com.lottieprogressdialog.LottieDialogFragment;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class TaiwanFragment extends Fragment {
+public class TaiwanFragment extends Fragment implements View.OnClickListener {
 
     public TaiwanFragment() {
         // Required empty public constructor
@@ -80,9 +80,11 @@ public class TaiwanFragment extends Fragment {
         }
         View rootViewone = inflater.inflate(R.layout.fragment_taiwan, container, false);
         SharedPreferences shred = getActivity().getSharedPreferences("userdetails", MODE_PRIVATE);
+        SharedPreferences ga = getActivity().getSharedPreferences("game", MODE_PRIVATE);
+        SharedPreferences.Editor g = ga.edit();
         version = shred.getString("version","32");
         SharedPreferences.Editor editor = shred.edit();
-        editor.putString("game", "Taiwan").apply();
+        g.putString("game", "Taiwan").apply();
         deviceid = LoginActivity.getDeviceId(getActivity());
         Button cleanguest, fixgame, antiban1, antiban2;
         taptoactivatetw = rootViewone.findViewById(R.id.taptoactivatetw);
@@ -91,7 +93,7 @@ public class TaiwanFragment extends Fragment {
         antiban1 = rootViewone.findViewById(R.id.servertw1);
         antiban2 = rootViewone.findViewById(R.id.servertw2);
         final File daemon = new File(urlref.pathoflib);
-
+        taptoactivatetw.setOnClickListener(this);
         final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
         lottieDialog.setCancelable(false);
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json",true);
@@ -263,11 +265,11 @@ public class TaiwanFragment extends Fragment {
         fixgame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                antiban.show(getActivity().getFragmentManager(),"antiban2");
+                fixgameani.show(getActivity().getFragmentManager(),"antiban2");
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        antiban.dismiss();
+                        fixgameani.dismiss();
                         //   new DownloadTask(getActivity(), URL);
                         try {
                             Process su = Runtime.getRuntime().exec("su");
@@ -343,6 +345,34 @@ public class TaiwanFragment extends Fragment {
             }
         });
         return rootViewone;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+
+            case R.id.taptoactivatetw:
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        PackageManager pm = getContext().getPackageManager();
+                        if(Helper.isPackageInstalled("com.rekoo.pubgm",pm)) {
+                            Intent i = new Intent(getContext(), MainActivity.class);
+                            i.putExtra("game","Taiwan");
+                            startActivity(i);
+                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
+
+                            ShellUtils.SU(
+                                    "am start -n com.rekoo.pubgm/com.epicgames.ue4.SplashActivity");
+
+                        }else{
+                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },2000);
+                break;
+
+        }
     }
 }
 

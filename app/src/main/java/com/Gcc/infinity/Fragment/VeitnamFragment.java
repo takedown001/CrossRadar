@@ -53,7 +53,7 @@ public class VeitnamFragment extends Fragment implements View.OnClickListener {
     public VeitnamFragment() {
         // Required empty public constructor
     }
-
+    final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,9 +86,9 @@ public class VeitnamFragment extends Fragment implements View.OnClickListener {
         cleanguest = rootViewone.findViewById(R.id.veitnamcleanguest);
         fixgame = rootViewone.findViewById(R.id.veitnamfixgame);
         taptoactivatevn = rootViewone.findViewById(R.id.taptoactivatevn);
-        final File daemon = new File(urlref.pathoflib);
+        final File daemon = new File(urlref.pathoflib+urlref.nameoflib);
         taptoactivatevn.setOnClickListener(this);
-        final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
+
         lottieDialog.setCancelable(false);
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json",true);
         antiban.setCancelable(false);
@@ -315,31 +315,7 @@ public class VeitnamFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        taptoactivatevn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lottieDialog.show(getActivity().getFragmentManager(),"loading");
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        lottieDialog.dismiss();
-                        PackageManager pm = getContext().getPackageManager();
-                        if(Helper.isPackageInstalled("com.vng.pubgmobile",pm)) {
-                            ShellUtils.SU(
-                                    "am start -n com.vng.pubgmobile/com.epicgames.ue4.SplashActivity");
-                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
 
-                            startActivity(new Intent(getContext(), MainActivity.class));
-                        }else{
-                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                },4000);
-                // Game is running
-
-            }
-        });
         return rootViewone;
     }
 
@@ -348,9 +324,12 @@ public class VeitnamFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
 
             case R.id.taptoactivatevn:
+                lottieDialog.show(getActivity().getFragmentManager(),"lol");
+                lottieDialog.setCancelable(false);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        lottieDialog.dismiss();
                         PackageManager pm = getContext().getPackageManager();
                         if(Helper.isPackageInstalled("com.vng.pubgmobile",pm)) {
                             Intent i = new Intent(getContext(), MainActivity.class);

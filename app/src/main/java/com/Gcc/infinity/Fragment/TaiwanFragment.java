@@ -59,6 +59,7 @@ public class TaiwanFragment extends Fragment implements View.OnClickListener {
         fragment.setArguments(args);
         return fragment;
     }
+    final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +84,7 @@ public class TaiwanFragment extends Fragment implements View.OnClickListener {
         SharedPreferences ga = getActivity().getSharedPreferences("game", MODE_PRIVATE);
         SharedPreferences.Editor g = ga.edit();
         version = shred.getString("version","32");
-        SharedPreferences.Editor editor = shred.edit();
+        lottieDialog.setCancelable(false);
         g.putString("game", "Taiwan").apply();
         deviceid = LoginActivity.getDeviceId(getActivity());
         Button cleanguest, fixgame, antiban1, antiban2;
@@ -92,10 +93,9 @@ public class TaiwanFragment extends Fragment implements View.OnClickListener {
         fixgame = rootViewone.findViewById(R.id.taiwanfixgame);
         antiban1 = rootViewone.findViewById(R.id.servertw1);
         antiban2 = rootViewone.findViewById(R.id.servertw2);
-        final File daemon = new File(urlref.pathoflib);
+        final File daemon = new File(urlref.pathoflib+urlref.nameoflib);
         taptoactivatetw.setOnClickListener(this);
-        final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
-        lottieDialog.setCancelable(false);
+
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json",true);
         antiban.setCancelable(false);
 
@@ -321,29 +321,7 @@ public class TaiwanFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        taptoactivatetw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lottieDialog.show(getActivity().getFragmentManager(),"loading");
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        PackageManager pm = getContext().getPackageManager();
-                        if(Helper.isPackageInstalled("com.rekoo.pubgm",pm)) {
-                            ShellUtils.SU(
-                                    "am start -n com.rekoo.pubgm/com.epicgames.ue4.SplashActivity");
-                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
 
-                            startActivity(new Intent(getContext(), MainActivity.class));
-                        }else{
-                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                },4000);
-
-            }
-        });
         return rootViewone;
     }
 
@@ -352,9 +330,12 @@ public class TaiwanFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
 
             case R.id.taptoactivatetw:
+                lottieDialog.show(getActivity().getFragmentManager(),"loo");
+                lottieDialog.setCancelable(false);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        lottieDialog.dismiss();
                         PackageManager pm = getContext().getPackageManager();
                         if(Helper.isPackageInstalled("com.rekoo.pubgm",pm)) {
                             Intent i = new Intent(getContext(), MainActivity.class);

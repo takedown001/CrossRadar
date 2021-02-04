@@ -81,7 +81,7 @@ public class GlobalFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
     }
-
+    final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json", true);
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -114,7 +114,7 @@ public class GlobalFragment extends Fragment implements View.OnClickListener {
         fixgame = rootViewone.findViewById(R.id.globalfixgame);
         taptoactivategl1 = rootViewone.findViewById(R.id.taptoactivategl);
         taptoactivategl1.setOnClickListener(this);
-        final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json", true);
+
         lottieDialog.setCancelable(false);
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json", true);
         antiban.setCancelable(false);
@@ -357,9 +357,12 @@ public class GlobalFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
 
             case R.id.taptoactivategl:
+                lottieDialog.show(getActivity().getFragmentManager(),"loo");
+                lottieDialog.setCancelable(false);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        lottieDialog.dismiss();
                         PackageManager pm = getContext().getPackageManager();
                         if(Helper.isPackageInstalled("com.tencent.ig",pm)) {
                             Intent i = new Intent(getContext(), MainActivity.class);

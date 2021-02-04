@@ -65,7 +65,7 @@ public class KoreanFragment extends Fragment implements View.OnClickListener {
 
 
     }
-
+    final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,9 +89,9 @@ public class KoreanFragment extends Fragment implements View.OnClickListener {
         antiban1 = rootViewone.findViewById(R.id.serverkr1);
         antiban2 = rootViewone.findViewById(R.id.serverkr2);
         taptoactivatekr = rootViewone.findViewById(R.id.taptoactivatekr);
-        final File daemon = new File(urlref.pathoflib);
+        final File daemon = new File(urlref.pathoflib+urlref.nameoflib);
         taptoactivatekr.setOnClickListener(this);
-        final DialogFragment lottieDialog = new LottieDialogFragment().newInstance("loadingdone.json",true);
+
         lottieDialog.setCancelable(false);
         final DialogFragment antiban = new LottieDialogFragment().newInstance("antiban.json",true);
         antiban.setCancelable(false);
@@ -318,32 +318,6 @@ public class KoreanFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        taptoactivatekr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lottieDialog.show(getActivity().getFragmentManager(), "load");
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        lottieDialog.dismiss();
-                        PackageManager pm = getContext().getPackageManager();
-                        if(Helper.isPackageInstalled("com.pubg.krmobile",pm))
-                        {
-                            // Game is running
-                            ShellUtils.SU(
-                                    "am start -n com.pubg.krmobile/com.epicgames.ue4.SplashActivity");
-                            Toast.makeText(getContext(), "Wait While We Setting Up Things", Toast.LENGTH_LONG).show();
-
-                            startActivity(new Intent(getContext(), MainActivity.class));
-                        }
-                        else{
-                            Toast.makeText(getContext(), "Game Not Installed", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },4000);
-
-            }
-        });
         return rootViewone;
     }
 
@@ -352,9 +326,12 @@ public class KoreanFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
 
             case R.id.taptoactivatekr:
+                lottieDialog.show(getActivity().getFragmentManager(),"");
+                lottieDialog.setCancelable(false);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        lottieDialog.dismiss();
                         PackageManager pm = getContext().getPackageManager();
                         if(Helper.isPackageInstalled("com.pubg.krmobile",pm)) {
                             Intent i = new Intent(getContext(), MainActivity.class);

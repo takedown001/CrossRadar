@@ -48,12 +48,8 @@ public class HomeActivity extends AppCompatActivity {
     private String data = "data";
     private String whatsNewData;
     private static final String TAG_APP_NEWVERSION = "newversion";
-    private static int backbackexit = 1;
-    public String daemonPath;
 
-    public String daemonPath64;
 
-    public static String socket;
     RequestHandler requestHandler = new RequestHandler();
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +63,7 @@ public class HomeActivity extends AppCompatActivity {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         new OneLoadAllProducts().execute();
+
         File f = new File(urlref.downloadpath);
 
 

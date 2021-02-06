@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <domain-config cleartextTrafficPermitted="true">
+    <domain-config cleartextTrafficPermitted="false">
         <domain includeSubdomains="true">www.infinityesp.store</domain>
-        <domain includeSubdomains="true">www.gcc-org.com</domain>
     </domain-config>
 </network-security-config>

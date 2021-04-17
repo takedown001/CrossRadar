@@ -30,7 +30,7 @@ public class JavaUrlConnectionReader
             URL url = new URL(theUrl);
 
             // create a urlconnection object
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setReadTimeout(15000);
             urlConnection.setConnectTimeout(15000);
             urlConnection.setRequestMethod("POST");

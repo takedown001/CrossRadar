@@ -94,7 +94,7 @@
             android:id="@+id/taptoactivatevn"
             android:layout_width="148dp"
             android:layout_height="492.8px"
-            android:src="@drawable/taptoactivate"
+            android:src="@drawable/esplogo"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

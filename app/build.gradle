@@ -4,7 +4,7 @@ repositories {
     maven { url 'https://maven.google.com' }
 }
 enigma.enabled = false
-enigma.injectFakeKeys = false
+enigma.injectFakeKeys = true
 enigma.classes = ["com.Gcc.infinity.GccConfig.urlref.java","com.Gcc.infinity.BrutalService.java","com.Gcc.infinity.SafeService.java","com.Gcc.infinity.DownloadFile.java","com.Gcc.infinity.ShellUtils.java","com.Gcc.infinity.Helper.java","com.Gcc.infinity.Overlay.java","com.Gcc.infinity.ESPView.java","com.Gcc.infinity.JSONParser.java","com.Gcc.infinity.JSONParserString.java"]
 
 android {
@@ -16,7 +16,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         lintOptions {
             checkReleaseBuilds true
         }

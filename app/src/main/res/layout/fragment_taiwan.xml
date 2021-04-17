@@ -92,7 +92,7 @@
             android:layout_width="148dp"
             android:layout_height="492.8px"
             android:layout_marginTop="20dp"
-            android:src="@drawable/taptoactivate"
+            android:src="@drawable/esplogo"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

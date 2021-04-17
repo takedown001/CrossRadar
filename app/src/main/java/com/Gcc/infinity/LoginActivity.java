@@ -206,13 +206,10 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putLong(TAG_DURATION, getduration).apply();
                                     editor.putString(TAG_KEY, key);
                                     editor.apply();
-
                                     //    Log.d("date",getcurrentdate);
                                     Toast.makeText(getApplicationContext(), obj.getString(TAG_MSG), Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-
                                     startActivity(intent);
-
                                     //getting the user from the response.
                                     //starting the profile activity
                                     finish();

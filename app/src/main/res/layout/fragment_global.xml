@@ -96,7 +96,7 @@
             android:layout_height="162dp"
             android:layout_marginTop="20dp"
             android:clickable="true"
-            android:src="@drawable/taptoactivate"
+            android:src="@drawable/esplogo"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/servergl1"
             app:layout_constraintEnd_toEndOf="parent"

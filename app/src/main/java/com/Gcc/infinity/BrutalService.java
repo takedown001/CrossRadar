@@ -131,7 +131,19 @@ public class BrutalService extends Service {
                 alertDialog.show();
             }
         });
-
+        Switch bypass = mainView.findViewById(R.id.bypass);
+        bypass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    ShellUtils.SU(myDaemon + " 101");
+                    ShellUtils.SU(myDaemon + " 1111");
+                } else {
+                    ShellUtils.SU(myDaemon + " 102");
+                    ShellUtils.SU(myDaemon + " 2222");
+                }
+            }
+        });
 
 
         RadioButton aimoff = mainView.findViewById(R.id.aimoff);

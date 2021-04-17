@@ -127,8 +127,19 @@ public class SafeService  extends Service {
 
 
 
-
-
+        Switch bypass = mainView.findViewById(R.id.bypass);
+        bypass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    ShellUtils.SU(myDaemon + " 101");
+                    ShellUtils.SU(myDaemon + " 103");
+                } else {
+                    ShellUtils.SU(myDaemon + " 102");
+                    ShellUtils.SU(myDaemon + " 104");
+                }
+            }
+        });
 
         Switch smallcroshair = mainView.findViewById(R.id.smallcroshair);
         smallcroshair.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){

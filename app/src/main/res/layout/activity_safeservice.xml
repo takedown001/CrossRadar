@@ -93,6 +93,16 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="10dp">
+                        <Switch
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Antiban"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/montserrat"
+                            android:theme="@style/switchtheme"
+                            android:id="@+id/bypass"/>
 
                         <Switch
                             android:id="@+id/smallcroshair"

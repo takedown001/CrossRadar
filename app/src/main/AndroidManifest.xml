@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.Gcc.infinity">
+    package="com.gamesploit.crossradar">
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <application
         android:allowBackup="true"
@@ -22,37 +17,29 @@
         android:requestLegacyExternalStorage="true"
         android:networkSecurityConfig="@xml/network_security_config">
 
-        <activity android:name="com.Gcc.infinity.SplashScreenActivity" android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name="com.gamesploit.crossradar.SplashScreenActivity" android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
 
             </intent-filter>
         </activity>
-
-        <service android:name="com.Gcc.infinity.Overlay"
-            android:enabled="true"
-            android:exported="false"/>
-        <service android:name="com.Gcc.infinity.FloatLogo"
+        <activity android:name=".activityMaintain" android:theme="@style/AppTheme.NoActionBar"/>
+        <service android:name="com.gamesploit.crossradar.FloatLogo"
             android:enabled="true"
             android:exported="false"
             />
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <service
-            android:name="com.Gcc.infinity.BrutalService"
-            android:enabled="true"
-            android:exported="false"/>
-        <service
-            android:name="com.Gcc.infinity.SafeService"
+            android:name="com.gamesploit.crossradar.SafeService"
             android:enabled="true"
             android:exported="false"/>
 
         <meta-data
             android:name="android.max_aspect"
             android:value="4.0"/>
-        <activity android:name="com.Gcc.infinity.LoginActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.Gcc.infinity.AppUpdaterActivity" android:theme="@style/AppTheme.NoActionBar"/>
-<activity android:name="com.Gcc.infinity.HomeActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.gamesploit.crossradar.LoginActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.gamesploit.crossradar.AppUpdaterActivity" android:theme="@style/AppTheme.NoActionBar"/>
+<activity android:name="com.gamesploit.crossradar.HomeActivity" android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Magneto"
+rootProject.name = "CrossRadar"

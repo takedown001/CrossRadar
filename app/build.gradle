@@ -5,15 +5,15 @@ repositories {
 }
 enigma.enabled = false
 enigma.injectFakeKeys = true
-enigma.classes = ["com.Gcc.infinity.GccConfig.urlref.java","com.Gcc.infinity.BrutalService.java","com.Gcc.infinity.SafeService.java","com.Gcc.infinity.DownloadFile.java","com.Gcc.infinity.ShellUtils.java","com.Gcc.infinity.Helper.java","com.Gcc.infinity.Overlay.java","com.Gcc.infinity.ESPView.java","com.Gcc.infinity.JSONParser.java","com.Gcc.infinity.JSONParserString.java"]
+enigma.classes = ["com.gamesploit.crossradar.GccConfig.urlref.java","com.gamesploit.crossradar.BrutalService.java","com.gamesploit.crossradar.SafeService.java","com.gamesploit.crossradar.DownloadFile.java","com.gamesploit.crossradar.ShellUtils.java","com.gamesploit.crossradar.Helper.java","com.gamesploit.crossradar.Overlay.java","com.gamesploit.crossradar.ESPView.java","com.gamesploit.crossradar.JSONParser.java","com.gamesploit.crossradar.JSONParserString.java"]
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.Gcc.infinity"
-        minSdkVersion 23
+        applicationId "com.gamesploit.crossradar"
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.1"
@@ -55,9 +55,11 @@ repositories {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.airbnb.android:lottie:3.6.0'
+    implementation 'net.lingala.zip4j:zip4j:2.7.0'
     implementation 'com.burakustun:lottieprogressdialog:1.0.2'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.navigation:navigation-fragment:2.3.3'

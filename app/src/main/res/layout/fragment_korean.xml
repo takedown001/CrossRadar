@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Gcc.infinity.Fragment.KoreanFragment">
+    tools:context="com.Gcc.crossradar.Fragment.KoreanFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:layout_marginEnd="57dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/antiban1"
-            android:text="Antiban 2"
+            android:text="Stop Cheat"
             android:textColor="@color/whiteTextColor"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/koreancleanguest"
@@ -76,10 +76,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="48dp"
-
             android:layout_marginBottom="15dp"
             android:background="@drawable/antiban1"
-            android:text="Antiban 1"
+            android:text="Start Cheat"
             android:textColor="@color/whiteTextColor"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/serverkr2"
@@ -92,7 +91,7 @@
             android:layout_width="148dp"
             android:layout_height="492.8px"
             android:layout_marginTop="20dp"
-            android:src="@drawable/esplogo"
+            android:src="@drawable/kr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

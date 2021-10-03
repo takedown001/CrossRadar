@@ -23,7 +23,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/injection" />
 
         </RelativeLayout>
 
@@ -71,7 +71,7 @@
                     <ImageView
                         android:layout_width="63dp"
                         android:layout_height="39dp"
-                        android:src="@drawable/close"
+                        android:src="@drawable/cancel"
                         android:text="Text" />
 
                 </LinearLayout>
@@ -93,16 +93,28 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="10dp">
+
                         <Switch
+                            android:id="@+id/bypass"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Antiban"
                             android:layout_marginStart="3dp"
                             android:layout_marginTop="5dp"
-                            android:textColor="@color/orange"
                             android:fontFamily="@font/montserrat"
-                            android:theme="@style/switchtheme"
-                            android:id="@+id/bypass"/>
+                            android:text="Memory Patch (lobby)"
+                            android:textColor="@color/orange"
+                            android:theme="@style/switchtheme" />
+
+                        <Switch
+                            android:id="@+id/bypassfirewall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="FireWall Protection (Spawn)"
+                            android:textColor="@color/orange"
+                            android:theme="@style/switchtheme" />
 
                         <Switch
                             android:id="@+id/smallcroshair"
@@ -157,6 +169,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Dawn Enviornment"
+                            android:visibility="gone"
                             android:textColor="@color/orange"
                             android:fontFamily="@font/montserrat"
                             android:theme="@style/switchtheme"
@@ -167,6 +180,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="No Grass"
+                            android:visibility="gone"
                             android:textColor="@color/orange"
                             android:fontFamily="@font/montserrat"
                             android:theme="@style/switchtheme"
@@ -179,12 +193,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:visibility="gone"
                         android:padding="10dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:textStyle="bold"
+
                             android:text=" FOG :"
                             android:textColor="@color/orange"
                             android:fontFamily="@font/montserrat"/>
@@ -248,6 +264,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="Wide View"
+                        android:visibility="gone"
                         android:textColor="@color/orange"
                         android:fontFamily="@font/montserrat"/>
 
@@ -255,6 +272,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:orientation="horizontal"
                         android:padding="10dp">
 
